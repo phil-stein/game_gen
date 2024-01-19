@@ -1,0 +1,17 @@
+person
+alien
+house
+garden
+city
+man
+woman
+monster
+demon
+angel
+werewolf
+superhero
+vampire
+zombie
+car
+motorcycle
+bicycle

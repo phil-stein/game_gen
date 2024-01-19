@@ -1,0 +1,12 @@
+shoot
+find
+destroy
+repair
+move
+color
+move
+rotate
+scale
+steal
+recover
+

@@ -1,0 +1,9 @@
+action
+puzzle
+shooter
+shoot-em-up
+adventure
+survival
+story-driven
+platformer
+strategy

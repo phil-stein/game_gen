@@ -1,0 +1,12 @@
+modern
+sci-fi
+steampunk
+magepunk
+cyberpunk
+solarpunk
+fantasy
+dystopian
+utopian
+lovecraftian
+post-modern
+medieval
