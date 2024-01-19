@@ -1,0 +1,6 @@
+[submodule "src/global"]
+	path = src/global
+	url = https://github.com/phil-stein/global.git
+[submodule "src/math"]
+	path = src/math
+	url = https://github.com/phil-stein/math.git
