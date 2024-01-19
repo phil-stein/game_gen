@@ -21,6 +21,14 @@ void core_data_init()
   core_data_read_file("../files/adjectives.txt",   core_data.adjectives_txt,   &core_data.adjectives,   &core_data.adjectives_len);
   core_data_read_file("../files/settings.txt",     core_data.settings_txt,     &core_data.settings,     &core_data.settings_len);
   core_data_read_file("../files/themes.txt",       core_data.themes_txt,       &core_data.themes,       &core_data.themes_len);
+
+  core_data_check_duplicates(core_data.perspectives, core_data.perspectives_len);
+  core_data_check_duplicates(core_data.genres,       core_data.genres_len);
+  core_data_check_duplicates(core_data.verbs,        core_data.verbs_len);
+  core_data_check_duplicates(core_data.nouns,        core_data.nouns_len);
+  core_data_check_duplicates(core_data.adjectives,   core_data.adjectives_len);
+  core_data_check_duplicates(core_data.settings,     core_data.settings_len);
+  core_data_check_duplicates(core_data.themes,       core_data.themes_len);
 }
 void core_data_cleanup()
 {  
@@ -77,4 +85,19 @@ void core_data_read_file(const char* file_path, char* txt, char*** arr, int* len
   // free(txt);
   // core_data.themes_txt = txt;
 
+}
+
+void core_data_check_duplicates_named(char** arr, int len, const char* name)
+{
+  for (int x = 0; x < len; ++x)
+  {
+    for (int y = 0; y < len; ++y)
+    {
+      if (x == y) { continue; }
+      if (strcmp(arr[x], arr[y]) == 0) // matches
+      {
+        P_ERR("duplicate %s and %s in %s\n", arr[x], arr[y], name);
+      }
+    }
+  }
 }

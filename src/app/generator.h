@@ -7,6 +7,11 @@ extern "C" {
 
 #include "global/global.h"
 #include "app/core_data.h"
+#include "math/math_inc.h"
+
+#include "stb/stb_ds.h"
+
+#include <stdarg.h>
 
 #define _PF_COLOR(c)       if (core_data->style_act) { PF_COLOR((c)); }
 #define _PF_STYLE(s, c)    if (core_data->style_act) { PF_STYLE((s), (c)); }
@@ -28,9 +33,38 @@ extern "C" {
 #define SETTING_COLOR       PF_GREEN
 #define THEME_COLOR         PF_CYAN
 
+INLINE void TITLE(const char* title)
+{
+  core_data_t* core_data = core_data_get();
+  _PF_COLOR(PF_PURPLE); PF("%s:\n", title); _PF_COLOR(PF_WHITE);  
+  PF("\t");
+}
+#define NEWLINE() PF("\n\t") 
+
+
+void ADJECTIVE_IDX(int idx);
+void NOUN_IDX(int idx);
+void VERB_IDX(int idx);
+
+void generator_reset_word_arrays();
+int ADJECTIVE();
+int NOUN();
+int VERB();
+int SETTING();
+int THEME();
+int PERSPECTIVE();
+int GENRE();
+
+
 void generator_print_gameplay();
 void generator_print_setting();
 void generator_print_story();
+
+void generator_print_gameplay_01();
+void generator_print_gameplay_02();
+void generator_print_gameplay_03();
+void generator_print_setting_01();
+void generator_print_story_01();
 
 
 #ifdef __cplusplus

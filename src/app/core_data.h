@@ -50,6 +50,8 @@ core_data_t* core_data_get();
 void core_data_init();
 void core_data_cleanup();
 void core_data_read_file(const char* file_path, char* txt, char*** arr, int* len);
+void core_data_check_duplicates_named(char** arr, int len, const char* name);
+#define core_data_check_duplicates(arr, len) core_data_check_duplicates_named((arr), (len), #arr)
 
 
 #ifdef __cplusplus

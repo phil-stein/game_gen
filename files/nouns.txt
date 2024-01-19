@@ -15,3 +15,15 @@ zombie
 car
 motorcycle
 bicycle
+caterpillar
+lion
+cow
+cat
+dog
+giraffe
+horse
+bugg
+psychopath
+mushroom
+dinosaur
+tree

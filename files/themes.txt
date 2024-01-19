@@ -3,9 +3,13 @@ nature
 machinery 
 religion
 war
-poverty   
+peace
+poverty
+wealth
 godhood
 brutalism
 magic
 technology
-scienc
+science
+idiocracy
+horror

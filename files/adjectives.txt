@@ -23,3 +23,10 @@ indian
 abstract
 rotating
 moving
+angry
+nice
+violent
+uncontrolable
+intelligent
+sencient
+
