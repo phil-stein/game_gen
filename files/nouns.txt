@@ -27,3 +27,5 @@ psychopath
 mushroom
 dinosaur
 tree
+vase
+key
