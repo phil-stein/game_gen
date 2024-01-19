@@ -9,10 +9,11 @@ extern "C" {
 
 typedef struct core_data_t
 {
-
+  bool style_act; // defines whether to print with color
 }core_data_t;
 #define CORE_DATA_INIT()            \
 {                                   \
+  .style_act = true,                \
 }
 
 core_data_t* core_data_get();
