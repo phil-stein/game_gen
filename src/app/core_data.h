@@ -45,6 +45,8 @@ typedef struct core_data_t
   int antagonist_noun;
   int protagonist_adj;
   int protagonist_noun;
+  int love_interest_adj;
+  int love_interest_noun;
 
 }core_data_t;
 #define CORE_DATA_INIT()            \
@@ -56,6 +58,8 @@ typedef struct core_data_t
   .antagonist_noun = 0,             \
   .protagonist_adj  = 0,            \
   .protagonist_noun = 0,            \
+  .love_interest_adj  = 0,          \
+  .love_interest_noun = 0,          \
 }
 
 core_data_t* core_data_get();

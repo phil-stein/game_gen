@@ -72,6 +72,7 @@ void generator_print_setting_01();
 void generator_print_setting_02();
 void generator_print_setting_03();
 void generator_print_story_01();
+void generator_print_story_02();
 
 
 #ifdef __cplusplus

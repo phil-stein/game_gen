@@ -33,12 +33,14 @@ void core_data_init()
 
   
   // pre-generate shared words
-  core_data.goal_adj         = generator_get_adjective();
-  core_data.goal_noun        = generator_get_noun();
-  core_data.antagonist_adj   = generator_get_adjective();
-  core_data.antagonist_noun  = generator_get_noun();
-  core_data.protagonist_adj  = generator_get_adjective();
-  core_data.protagonist_noun = generator_get_noun();
+  core_data.goal_adj           = generator_get_adjective();
+  core_data.goal_noun          = generator_get_noun();
+  core_data.antagonist_adj     = generator_get_adjective();
+  core_data.antagonist_noun    = generator_get_noun();
+  core_data.protagonist_adj    = generator_get_adjective();
+  core_data.protagonist_noun   = generator_get_noun();
+  core_data.love_interest_adj  = generator_get_adjective();
+  core_data.love_interest_noun = generator_get_noun();
 }
 void core_data_cleanup()
 {  
