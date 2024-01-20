@@ -43,103 +43,11 @@ void generator_reset_word_arrays()
   genres_used_len = 0;
 }
 
-void generator_print_gameplay()
-{
-  int x = rand_int_range(0, 3);
 
-  switch (x)
-  {
-    case 0:
-      generator_print_gameplay_01();
-      break;
-    case 1:
-      generator_print_gameplay_02();
-      break;
-    case 2:
-      generator_print_gameplay_03();
-      break;
-    
-    default:
-      generator_print_gameplay_01();
-      break;
-  }
-}
-void generator_print_setting()
-{
-  generator_print_setting_01();
-}
-void generator_print_story()
-{
-  generator_print_story_01();
-}
-
-
-void generator_print_setting_01()
-{
-  generator_reset_word_arrays();
-  TITLE("SETTING");
-
-  // a <setting01> world, with <setting02> elements 
-  // and a visual theme of <theme>
-  
-  PF("a ");
-  SETTING();
-  PF(" world, with ");
-  SETTING();
-  PF(" elements");
-  NEWLINE();
-  PF("and a visual theme of ");
-  ADJECTIVE(); PF(" ");
-  THEME();
-  NEWLINE();
-  PF("and ");
-  ADJECTIVE(); PF(" ");
-  THEME();
-  PF("\n");
-}
-
-void generator_print_story_01()
+int generator_get_adjective()
 {
   core_data_t* core_data = core_data_get();
-  
-  generator_reset_word_arrays();
-  TITLE("STORY");
 
-  PF("the antagonist, ");
-  // int adj01  = ADJECTIVE(0); PF(" ");
-  ADJECTIVE(); PF(" ");
-  NOUN();
-  PF(", has ");
-  VERB(); 
-  _PF_COLOR(VERB_COLOR); PF("ed"); _PF_COLOR(PF_WHITE);  
-  PF(" the ");
-  // int adj02  = ADJECTIVE(1, adj01); PF(" ");
-  int adj02 = ADJECTIVE(); PF(" ");
-  int noun02 = NOUN();
-  PF("\n\t");
-  PF("to save the ");
-  ADJECTIVE_IDX(adj02); PF(" ");
-  NOUN_IDX(noun02);
-  PF(", the protagonist, ");
-  // int adj03  = ADJECTIVE(2, adj01, adj02); PF(" ");
-  ADJECTIVE(); PF(" ");
-  NOUN();
-  PF(",");
-  NEWLINE();
-  PF("needs to ");
-  VERB(); PF(" "); 
-  PF("the ");
-  // int adj04  = ADJECTIVE(3, adj01, adj02, adj03); PF(" ");
-  ADJECTIVE(); PF(" ");
-  NOUN();
-  PF("\n");
-
-}
-
-int ADJECTIVE() 
-{
-  core_data_t* core_data = core_data_get();
- 
   // generate new idx, check if duplicate
   int idx = -1;
   bool is_duplicate = false;
@@ -156,13 +64,21 @@ int ADJECTIVE()
   
   arrput(adjectives_used, idx);
   adjectives_used_len++;
-  
+
+  return idx;
+}
+int ADJECTIVE() 
+{
+  core_data_t* core_data = core_data_get();
+
+  int idx = generator_get_adjective();
   const char* word = core_data->adjectives[idx];
   _PF_COLOR(ADJECTIVE_COLOR);   PF("%s", word); _PF_COLOR(PF_WHITE);  
 
   return idx;
 }
-int NOUN() 
+
+int generator_get_noun()
 {
   core_data_t* core_data = core_data_get();
  
@@ -183,12 +99,20 @@ int NOUN()
   arrput(nouns_used, idx);
   nouns_used_len++;
   
+  return idx;
+}
+int NOUN() 
+{
+  core_data_t* core_data = core_data_get();
+
+  int idx = generator_get_noun();
   const char* word = core_data->nouns[idx];
   _PF_COLOR(NOUN_COLOR);   PF("%s", word); _PF_COLOR(PF_WHITE);  
 
   return idx;
 }
-int VERB() 
+
+int generator_get_verb()
 {
   core_data_t* core_data = core_data_get();
  
@@ -208,7 +132,15 @@ int VERB()
   
   arrput(verbs_used, idx);
   verbs_used_len++;
-  
+
+  return idx;
+}
+int VERB() 
+{
+  core_data_t* core_data = core_data_get();
+ 
+  int idx = generator_get_verb();
+
   const char* word = core_data->verbs[idx];
   _PF_COLOR(VERB_COLOR);   PF("%s", word); _PF_COLOR(PF_WHITE);  
 

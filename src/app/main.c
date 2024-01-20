@@ -22,10 +22,7 @@
 
 
 int main(int argc, char** argv)
-{
-  core_data_t* core_data = core_data_get();
-  core_data_init();
-  
+{  
   // make random seed based on time
   u64 time64 = time(NULL);
   u32 time32 = (u32)(time64 - 1705674400);
@@ -33,7 +30,9 @@ int main(int argc, char** argv)
   rand_seed(time32);
   // PF("time64: %ld\n", time64);
   // PF("time32: %d\n", time32);
-  
+ 
+  core_data_t* core_data = core_data_get();
+  core_data_init();
   
   // --- printing ---
 

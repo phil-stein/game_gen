@@ -39,11 +39,23 @@ typedef struct core_data_t
   int    themes_len;
   char*  themes_txt; // the txt from the file, needs to be free'd
 
+  int goal_adj;
+  int goal_noun;
+  int antagonist_adj;
+  int antagonist_noun;
+  int protagonist_adj;
+  int protagonist_noun;
 
 }core_data_t;
 #define CORE_DATA_INIT()            \
 {                                   \
   .style_act = true,                \
+  .goal_adj  = 0,                   \
+  .goal_noun = 0,                   \
+  .antagonist_adj  = 0,             \
+  .antagonist_noun = 0,             \
+  .protagonist_adj  = 0,            \
+  .protagonist_noun = 0,            \
 }
 
 core_data_t* core_data_get();

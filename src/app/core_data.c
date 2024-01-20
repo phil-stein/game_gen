@@ -1,5 +1,6 @@
 #include "app/core_data.h"
 #include "app/file_io.h"
+#include "app/generator.h"
 
 #include "stb/stb_ds.h"
 
@@ -29,6 +30,15 @@ void core_data_init()
   core_data_check_duplicates(core_data.adjectives,   core_data.adjectives_len);
   core_data_check_duplicates(core_data.settings,     core_data.settings_len);
   core_data_check_duplicates(core_data.themes,       core_data.themes_len);
+
+  
+  // pre-generate shared words
+  core_data.goal_adj         = generator_get_adjective();
+  core_data.goal_noun        = generator_get_noun();
+  core_data.antagonist_adj   = generator_get_adjective();
+  core_data.antagonist_noun  = generator_get_noun();
+  core_data.protagonist_adj  = generator_get_adjective();
+  core_data.protagonist_noun = generator_get_noun();
 }
 void core_data_cleanup()
 {  

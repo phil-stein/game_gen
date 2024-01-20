@@ -29,3 +29,6 @@ dinosaur
 tree
 vase
 key
+banana
+banana-peel
+robot

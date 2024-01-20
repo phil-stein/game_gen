@@ -2,8 +2,32 @@
 #include "math/math_inc.h"
 
 
+void generator_print_gameplay()
+{
+  int x = rand_int_range(0, 3);
+
+  switch (x)
+  {
+    case 0:
+      generator_print_gameplay_01();
+      break;
+    case 1:
+      generator_print_gameplay_02();
+      break;
+    case 2:
+      generator_print_gameplay_03();
+      break;
+    
+    default:
+      generator_print_gameplay_01();
+      break;
+  }
+}
+
 void generator_print_gameplay_01()
 {
+  core_data_t* core_data = core_data_get();
+  
   generator_reset_word_arrays();
   TITLE("GAMEPLAY");
 
@@ -17,18 +41,24 @@ void generator_print_gameplay_01()
   PF("where you ");
   VERB();
   PF(" the "); 
-  ADJECTIVE(); PF(" ");
-  NOUN();
+  // ADJECTIVE(); PF(" ");
+  // NOUN();
+  ADJECTIVE_IDX(core_data->goal_adj); PF(" ");
+  NOUN_IDX(core_data->goal_noun);
   PF(" to ");
   VERB();
   NEWLINE();
   PF("the ");
-  ADJECTIVE(); PF(" ");
-  NOUN();
+  // core_data->goal_adj  = ADJECTIVE(); PF(" ");
+  // core_data->goal_noun = NOUN();
+  ADJECTIVE_IDX(core_data->antagonist_adj); PF(" ");
+  NOUN_IDX(core_data->antagonist_noun);
   PF("\n");
 }
 void generator_print_gameplay_02()
 {
+  core_data_t* core_data = core_data_get();
+  
   generator_reset_word_arrays();
   TITLE("GAMEPLAY");
 
@@ -43,14 +73,18 @@ void generator_print_gameplay_02()
   PF("where you ");
   VERB();
   PF(" the "); 
-  ADJECTIVE(); PF(" ");
-  NOUN();
+  // ADJECTIVE(); PF(" ");
+  // NOUN();
+  ADJECTIVE_IDX(core_data->goal_adj); PF(" ");
+  NOUN_IDX(core_data->goal_noun);
   PF(" to ");
   VERB();
   NEWLINE();
   PF("the ");
-  ADJECTIVE(); PF(" ");
-  NOUN();
+  // core_data->goal_adj  = ADJECTIVE(); PF(" ");
+  // core_data->goal_noun = NOUN();
+  ADJECTIVE_IDX(core_data->antagonist_adj); PF(" ");
+  NOUN_IDX(core_data->antagonist_noun);
   PF(" using the ");
   ADJECTIVE(); PF(" ");
   NOUN();
@@ -58,6 +92,8 @@ void generator_print_gameplay_02()
 }
 void generator_print_gameplay_03()
 {
+  core_data_t* core_data = core_data_get();
+  
   generator_reset_word_arrays();
   TITLE("GAMEPLAY");
 
@@ -74,20 +110,28 @@ void generator_print_gameplay_03()
   PF("where you ");
   VERB();
   PF(" the "); 
-  ADJECTIVE(); PF(" ");
-  NOUN();
+  // ADJECTIVE(); PF(" ");
+  // NOUN();
+  ADJECTIVE_IDX(core_data->goal_adj); PF(" ");
+  NOUN_IDX(core_data->goal_noun);
   PF(" to ");
   VERB();
   NEWLINE(); // the <adj02> <noun02> using the <noun03>
   PF("the ");
-  int adj02 = ADJECTIVE(); PF(" ");
-  int noun02 = NOUN();
+  // int adj02 = ADJECTIVE(); PF(" ");
+  // int noun02 = NOUN();
+  // core_data->goal_adj  = ADJECTIVE(); PF(" ");
+  // core_data->goal_noun = NOUN();
+  ADJECTIVE_IDX(core_data->antagonist_adj); PF(" ");
+  NOUN_IDX(core_data->antagonist_noun);
   PF(" using the ");
   ADJECTIVE(); PF(" ");
   NOUN();
   NEWLINE(); // the <adj02> <noun02> is immune to <adj03> <noun04>
-  ADJECTIVE_IDX(adj02); PF(" ");
-  NOUN_IDX(noun02);
+  // ADJECTIVE_IDX(adj02); PF(" ");
+  // NOUN_IDX(noun02);
+  ADJECTIVE_IDX(core_data->antagonist_adj); PF(" ");
+  NOUN_IDX(core_data->antagonist_noun);
   PF(" is immune to ");
   ADJECTIVE(); PF(" ");
   NOUN();

@@ -47,6 +47,11 @@ void NOUN_IDX(int idx);
 void VERB_IDX(int idx);
 
 void generator_reset_word_arrays();
+
+int generator_get_adjective();
+int generator_get_noun();
+int generator_get_verb();
+
 int ADJECTIVE();
 int NOUN();
 int VERB();
@@ -64,6 +69,8 @@ void generator_print_gameplay_01();
 void generator_print_gameplay_02();
 void generator_print_gameplay_03();
 void generator_print_setting_01();
+void generator_print_setting_02();
+void generator_print_setting_03();
 void generator_print_story_01();
 
 
