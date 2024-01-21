@@ -13,3 +13,8 @@ technology
 science
 idiocracy
 horror
+artistic
+serious
+cartoonish
+stylized
+ancient

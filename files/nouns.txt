@@ -32,3 +32,6 @@ key
 banana
 banana-peel
 robot
+costume
+haunted-house
+ghost

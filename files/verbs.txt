@@ -16,3 +16,4 @@ fire
 remove
 solve
 create
+disguise

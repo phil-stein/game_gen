@@ -22,4 +22,14 @@ simulation
 tower-defense
 turn-based
 horror
+idle
+party
+photography
+trivia
+art
+casual
+education
+creative
+open-world
+logic
 
