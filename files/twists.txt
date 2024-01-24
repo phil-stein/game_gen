@@ -2,4 +2,10 @@ roles-reversed
 low-visibility
 bad-controls
 ragdoll-controls
+temporary-blindness
+being-drunk
+being-high
+hallucinations
+changing-colors
+random-attacks
 
