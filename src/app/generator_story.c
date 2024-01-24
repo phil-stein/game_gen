@@ -4,7 +4,7 @@
 
 void generator_print_story()
 {
-  int x = rand_int_range(0, 3);
+  int x = rand_int_range(0, 2);
 
   switch (x)
   {
@@ -13,9 +13,6 @@ void generator_print_story()
       break;
     case 1:
       generator_print_story_02();
-      break;
-    case 2:
-      generator_print_story_01();
       break;
     
     default:
@@ -34,8 +31,7 @@ void generator_print_story_01()
   PF("the antagonist, ");
   ANTAGONIST();
   PF(", has ");
-  VERB(); 
-  _PF_COLOR(VERB_COLOR); PF("ed"); _PF_COLOR(PF_WHITE);  
+  VERB_PAST_TENSE(); 
   PF(" the ");
   GOAL();
   PF("\n\t");
@@ -50,6 +46,14 @@ void generator_print_story_01()
   PF("the ");
   ADJECTIVE(); PF(" ");
   NOUN();
+  if (rand_bool())  // loveinterest
+  {
+    NEWLINE();
+    PF("while trying to ");
+    VERB(); 
+    PF(" his love-interest the "); 
+    LOVE_INTEREST();
+  }
   PF("\n");
 }
 
@@ -60,30 +64,32 @@ void generator_print_story_02()
   generator_reset_word_arrays();
   TITLE("STORY");
 
-  PF("the antagonist, ");
-  ANTAGONIST();
-  PF(", has ");
-  VERB(); 
-  _PF_COLOR(VERB_COLOR); PF("ed"); _PF_COLOR(PF_WHITE);  
-  PF(" the ");
-  GOAL();
-  PF("\n\t");
-  PF("to save the ");
-  GOAL();
-  PF(", the protagonist, ");
+  PF("the protagonist ");
   PROTAGONIST();
-  PF(",");
-  NEWLINE();
-  PF("needs to ");
-  VERB(); PF(" "); 
-  PF("the ");
-  ADJECTIVE(); PF(" ");
+  PF(" has ");
+  VERB_PAST_TENSE(); 
+  PF(" the ");
+  if (rand_bool()) { ADJECTIVE(); PF(" "); }
   NOUN();
   NEWLINE();
-  PF("while trying to ");
-  VERB(); 
-  PF(" his love-interest the "); 
-  LOVE_INTEREST();
+  ANTAGONIST();
+  PF(", the antagonist,");
+  NEWLINE();
+  PF("is trying to stop him by ");
+  VERB_ING_FORM(); 
+  PF(" the ");
+  if (rand_bool()) { ADJECTIVE(); PF(" "); }
+  NOUN();
+  if (rand_bool())  // which will cause the protagonist to
+  {
+    NEWLINE();
+    PF("which will cause ");
+    PROTAGONIST();
+    PF(" to ");
+    VERB();
+    if (rand_bool()) { PF(" "); ADJECTIVE(); PF(" "); }
+  }
+
   PF("\n");
 }
 

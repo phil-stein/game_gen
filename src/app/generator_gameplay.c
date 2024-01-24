@@ -89,18 +89,22 @@ void generator_print_gameplay_02()
   TITLE("GAMEPLAY");
 
   int  genres_count     = rand_int_range(3, MIN(core_data->genres_len, 6));
-  int  objectives_count = rand_int_range(3, 6);
+  int  objectives_count = rand_int_range(2, 5);
   // PF("genres_count: %d, print_tool: %s, print_twist: %s", genres_count, STR_BOOL(print_tool), STR_BOOL(print_twist)); NEWLINE();
 
   // <pers> <genre> - ... - <genre> game
-  // <verb> the <noun>
-  // <verb> the <noun>
-  // <verb> the <noun>
+  // 1. <verb> the <noun>
+  // ...
+  // X. <verb> the <noun>
+  // with a twist of <adj> <twist01> and <twist>
+  
+  // <pers> <genre> - ... - <genre> game
   PERSPECTIVE(); PF(" ");
   for (int i = 0; i < genres_count; ++i) 
   { GENRE();  PF("%s", i == genres_count -1 ? " " : "-"); }
   PF("game ");
   
+  // n. <verb> <adj> <twist>, objectives
   for (int i = 0; i < objectives_count; ++i) 
   {
     NEWLINE();
@@ -110,9 +114,10 @@ void generator_print_gameplay_02()
     NOUN();
   }
 
-  if (rand_bool())  // twist
+  // with a twist of <adj> <twist01> and <twist>
+  if (rand_bool())  
   {
-    NEWLINE(); // with a twist of <adj> <twist01> and <twist>
+    NEWLINE(); 
     PF("with a twist of ");
     TWIST();
     if (rand_bool()) 

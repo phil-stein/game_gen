@@ -52,6 +52,19 @@ int main(int argc, char** argv)
 
   // --- printing ---
 
+  // // @TMP: testing past tense verbs
+  // for (int i = 0; i < core_data->verbs_len; ++i)
+  // {
+  //   VERB_IDX_PAST_TENSE(i); PF(" ");
+  // }
+  // PF("\n");
+  // @TMP: testing the -ing forms
+  // for (int i = 0; i < core_data->verbs_len; ++i)
+  // {
+  //   VERB_IDX_ING_FORM(i); PF(" ");
+  // }
+  // PF("\n");
+  
   _PF_COLOR(PF_PURPLE);
   P_LINE_STR("rnd game gen "); 
   _PF_COLOR(PF_WHITE);

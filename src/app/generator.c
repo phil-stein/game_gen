@@ -60,5 +60,52 @@ GENERATOR_GET_TEMPLATE(twist, twists);
 GENERATOR_WORD_TEMPLATE(TWIST, twist, twists, TWIST_COLOR);
 GENERATOR_WORD_IDX_TEMLPLATE(TWIST, twists, TWIST_COLOR);
 
+int VERB_PAST_TENSE() 
+{
+  int idx = generator_get_verb();
+  return VERB_IDX_PAST_TENSE(idx);
+}
+int VERB_IDX_PAST_TENSE(int idx) 
+{
+  core_data_t* core_data = core_data_get();                   
+  const char* word = core_data->verbs[idx];
+  
+  const int PAST_TENSE_MAX = 128;
+  char past_tense[PAST_TENSE_MAX];
+  STRCPY(past_tense, word);
 
+  if      (!strcmp(past_tense, "shoot"))    { STRCPY(past_tense, "shot"); } 
+  else if (!strcmp(past_tense, "find"))     { STRCPY(past_tense, "found"); } 
+  else if (!strcmp(past_tense, "steal"))    { STRCPY(past_tense, "stole"); }
+  else if (!strcmp(past_tense, "ride"))     { STRCPY(past_tense, "rode"); }
+  else if (!strcmp(past_tense, "overcome")) { STRCPY(past_tense, "overcome"); }
+  else if (past_tense[strlen(past_tense) -1] == 'e')  // last char alread e, i.e. moved
+  { strcat(past_tense, "d"); } 
+  else { strcat(past_tense, "ed"); }
 
+  _PF_COLOR(VERB_COLOR);   PF("%s", past_tense); _PF_COLOR(PF_WHITE);    
+}
+
+int VERB_ING_FORM() 
+{
+  int idx = generator_get_verb();
+  return VERB_IDX_ING_FORM(idx);
+}
+int VERB_IDX_ING_FORM(int idx) 
+{
+  core_data_t* core_data = core_data_get();                   
+  const char* word = core_data->verbs[idx];
+  
+  const int PAST_TENSE_MAX = 128;
+  char past_tense[PAST_TENSE_MAX];
+  STRCPY(past_tense, word);
+
+  if (past_tense[strlen(past_tense) -1] == 'e')  // last char alread e, i.e. moving
+  {
+    past_tense[strlen(past_tense) -1] = '\0';
+    strcat(past_tense, "ing");
+  }
+  else { strcat(past_tense, "ing"); }
+
+  _PF_COLOR(VERB_COLOR);   PF("%s", past_tense); _PF_COLOR(PF_WHITE);    
+}

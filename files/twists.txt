@@ -8,4 +8,6 @@ being-high
 hallucinations
 changing-colors
 random-attacks
-
+random-explosions
+ally-turned-enemy
+enemy-turned-ally

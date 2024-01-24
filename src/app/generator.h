@@ -146,6 +146,11 @@ GENERATOR_WORD_IDX_TEMLPLATE_DECL(PERSPECTIVE);
 GENERATOR_WORD_IDX_TEMLPLATE_DECL(GENRE);
 GENERATOR_WORD_IDX_TEMLPLATE_DECL(TWIST);
 
+int VERB_PAST_TENSE(); 
+int VERB_IDX_PAST_TENSE(int idx); 
+int VERB_ING_FORM(); 
+int VERB_IDX_ING_FORM(int idx); 
+
 void generator_print_gameplay();
 void generator_print_setting();
 void generator_print_story();
