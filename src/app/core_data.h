@@ -38,6 +38,10 @@ typedef struct core_data_t
   char** themes;     // needs to be arrfree'd
   int    themes_len;
   char*  themes_txt; // the txt from the file, needs to be free'd
+  
+  char** twists;     // needs to be arrfree'd
+  int    twists_len;
+  char*  twists_txt; // the txt from the file, needs to be free'd
 
   int goal_adj;
   int goal_noun;
@@ -69,6 +73,27 @@ void core_data_read_file(const char* file_path, char* txt, char*** arr, int* len
 void core_data_check_duplicates_named(char** arr, int len, const char* name);
 #define core_data_check_duplicates(arr, len) core_data_check_duplicates_named((arr), (len), #arr)
 
+
+#define GOAL_PTR(_core_data)                        \
+  ADJECTIVE_IDX((_core_data)->goal_adj); PF(" ");   \
+  NOUN_IDX((_core_data)->goal_noun);
+
+#define ANTAGONIST_PTR(_core_data)                       \
+  ADJECTIVE_IDX((_core_data)->antagonist_adj); PF(" ");  \
+  NOUN_IDX((_core_data)->antagonist_noun);
+
+#define PROTAGONIST_PTR(_core_data)                       \
+  ADJECTIVE_IDX((_core_data)->protagonist_adj); PF(" ");  \
+  NOUN_IDX((_core_data)->protagonist_noun);
+
+#define LOVE_INTEREST_PTR(_core_data)                       \
+  ADJECTIVE_IDX((_core_data)->love_interest_adj); PF(" ");  \
+  NOUN_IDX((_core_data)->love_interest_noun);
+
+#define GOAL()           GOAL_PTR(core_data) 
+#define ANTAGONIST()     ANTAGONIST_PTR(core_data)                             
+#define PROTAGONIST()    PROTAGONIST_PTR(core_data)                            
+#define LOVE_INTEREST()  LOVE_INTEREST_PTR(core_data)                               
 
 #ifdef __cplusplus
 }   // extern c

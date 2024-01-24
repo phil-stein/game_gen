@@ -22,6 +22,7 @@ void core_data_init()
   core_data_read_file("../files/adjectives.txt",   core_data.adjectives_txt,   &core_data.adjectives,   &core_data.adjectives_len);
   core_data_read_file("../files/settings.txt",     core_data.settings_txt,     &core_data.settings,     &core_data.settings_len);
   core_data_read_file("../files/themes.txt",       core_data.themes_txt,       &core_data.themes,       &core_data.themes_len);
+  core_data_read_file("../files/twists.txt",       core_data.twists_txt,       &core_data.twists,       &core_data.twists_len);
 
   core_data_check_duplicates(core_data.perspectives, core_data.perspectives_len);
   core_data_check_duplicates(core_data.genres,       core_data.genres_len);
@@ -41,6 +42,7 @@ void core_data_init()
   core_data.protagonist_noun   = generator_get_noun();
   core_data.love_interest_adj  = generator_get_adjective();
   core_data.love_interest_noun = generator_get_noun();
+
 }
 void core_data_cleanup()
 {  

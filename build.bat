@@ -1,9 +1,9 @@
 @echo off
 
-del bin/doc.exe
-cd build/make
+del bin\game_gen.exe
+cd build\make
 make
-cd ../../bin
+cd ..\..\bin
 :: adding for malloc as test
 game_gen
 cd ..

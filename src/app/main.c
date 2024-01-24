@@ -40,6 +40,13 @@ int main(int argc, char** argv)
   P_LINE_STR("rnd game gen "); 
   _PF_COLOR(PF_WHITE);
   PF("\n");
+  
+  TITLE("STATS");
+  PF("GOAL:          "); GOAL();          NEWLINE();
+  PF("ANTAGONIST:    "); ANTAGONIST();    NEWLINE();
+  PF("PROTAGONIST:   "); PROTAGONIST();   NEWLINE();
+  PF("LOVE_INTEREST: "); LOVE_INTEREST(); NEWLINE();
+  PF("\n");
 
   generator_print_gameplay();
   generator_print_setting();
