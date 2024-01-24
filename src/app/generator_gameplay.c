@@ -90,6 +90,7 @@ void generator_print_gameplay_03()
   // where you <verb01> the <adj01> <noun01> to <verb02> 
   // the <adj02> <noun02> using the <noun03>
   // the <adj02> <noun02> is immune to <adj03> <noun04>
+  // with a twist of <twist01>
   PERSPECTIVE(); PF(" ");
   GENRE();  PF("-");
   GENRE();  PF("-");
@@ -113,5 +114,8 @@ void generator_print_gameplay_03()
   PF(" is immune to ");
   ADJECTIVE(); PF(" ");
   NOUN();
+  NEWLINE(); // with a twist of <twist01>
+  PF("with a twist of ");
+  TWIST();
   PF("\n");
 }

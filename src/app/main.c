@@ -33,7 +33,23 @@ int main(int argc, char** argv)
  
   core_data_t* core_data = core_data_get();
   core_data_init();
+
   
+  // --- cmd args ---
+  for (int i = 1; i < argc; ++i)
+  {
+    // commands
+    if (argv[i][0] == '-')
+    {
+      // -c -> no syntax highlighting
+      if (argv[i][1] == 'c')
+      {
+        core_data->style_act = false;
+      }
+    }
+  }
+
+
   // --- printing ---
 
   _PF_COLOR(PF_PURPLE);

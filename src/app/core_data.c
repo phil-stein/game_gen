@@ -31,6 +31,7 @@ void core_data_init()
   core_data_check_duplicates(core_data.adjectives,   core_data.adjectives_len);
   core_data_check_duplicates(core_data.settings,     core_data.settings_len);
   core_data_check_duplicates(core_data.themes,       core_data.themes_len);
+  core_data_check_duplicates(core_data.twists,       core_data.twists_len);
 
   
   // pre-generate shared words
