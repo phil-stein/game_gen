@@ -63,9 +63,10 @@ GENERATOR_WORD_IDX_TEMLPLATE(TWIST, twists, TWIST_COLOR);
 int VERB_PAST_TENSE() 
 {
   int idx = generator_get_verb();
-  return VERB_IDX_PAST_TENSE(idx);
+  VERB_IDX_PAST_TENSE(idx);
+  return idx; 
 }
-int VERB_IDX_PAST_TENSE(int idx) 
+void VERB_IDX_PAST_TENSE(int idx) 
 {
   core_data_t* core_data = core_data_get();                   
   const char* word = core_data->verbs[idx];
@@ -89,9 +90,10 @@ int VERB_IDX_PAST_TENSE(int idx)
 int VERB_ING_FORM() 
 {
   int idx = generator_get_verb();
-  return VERB_IDX_ING_FORM(idx);
+  VERB_IDX_ING_FORM(idx);
+  return idx;
 }
-int VERB_IDX_ING_FORM(int idx) 
+void VERB_IDX_ING_FORM(int idx) 
 {
   core_data_t* core_data = core_data_get();                   
   const char* word = core_data->verbs[idx];

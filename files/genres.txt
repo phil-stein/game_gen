@@ -32,4 +32,6 @@ education
 creative
 open-world
 logic
+rts
+x-com-style
 

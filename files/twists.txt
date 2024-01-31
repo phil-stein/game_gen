@@ -1,7 +1,7 @@
 roles-reversed
 low-visibility
 bad-controls
-ragdoll-controls
+active-ragdoll-controls
 temporary-blindness
 being-drunk
 being-high
@@ -11,3 +11,9 @@ random-attacks
 random-explosions
 ally-turned-enemy
 enemy-turned-ally
+limited-resources
+inverted-color
+objects-randomly-disappearing
+no-control
+no-contol-over-character
+
